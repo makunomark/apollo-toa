@@ -6,10 +6,7 @@ import kotlin.reflect.full.memberProperties
 
 class ApolloToa {
 
-    fun <T : Any> convert(
-        it: Any,
-        kClass: KClass<T>
-    ): KClass<T> {
+    fun <T : Any> convert(it: Any, kClass: KClass<T>): KClass<T> {
 
         for (kCallable in it::class.members) {
             println(
