@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
 }
 
 data class Character(
-    private val id: String?,
-    private val name: String?,
-    private val status: String?
+    var id: String?,
+    var name: String?,
+    var status: String?
 )
