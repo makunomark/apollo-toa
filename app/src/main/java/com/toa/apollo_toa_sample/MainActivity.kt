@@ -1,6 +1,7 @@
 package com.toa.apollo_toa_sample
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.apollographql.apollo.ApolloCall
 import com.apollographql.apollo.ApolloClient
@@ -35,27 +36,14 @@ class MainActivity : AppCompatActivity() {
             override fun onResponse(response: Response<GetCharactersQuery.Data>) {
                 val characters = response.data()?.characters
                 val results: MutableList<GetCharactersQuery.Result>? = characters?.results
-//                Log.d(javaClass.simpleName, results.toString())
-
-//                results?.forEach {
-//                    //                    val character = Character(
-////                        it.id(), it.name, it.status
-////                    )
-//
-//
-//
-//                }
-
-
-                if(results != null)
-                ApolloToa().convert(results[0], Character::class)
+                val chars = ApolloToa().convertList(results, Character::class)
+                println("------------ ${chars.size} characters retrieved")
             }
         })
     }
 }
-
-data class Character(
-    var id: String?,
-    var name: String?,
-    var status: String?
-)
+class Character{
+    var id: String? = ""
+    var name: String? = ""
+    var status: String? = ""
+}
