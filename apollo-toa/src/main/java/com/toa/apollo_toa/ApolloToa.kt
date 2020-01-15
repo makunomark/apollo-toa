@@ -11,6 +11,9 @@ import kotlin.reflect.jvm.kotlinProperty
 
 class ApolloToa {
 
+    /**
+     * Convert single non-nested object T
+     */
     fun <T : Any> convert(input: Any, kClass: KClass<T>): T {
 
         val objectMap: MutableMap<Any, Any?> = HashMap<Any, Any?>()
@@ -30,6 +33,9 @@ class ApolloToa {
         return instance
     }
 
+    /**
+     * Convert list of non-nested objects <T>
+     */
     fun<T: Any> convertList(listInput: List<Any>?, kClass: KClass<T>): List<T> {
         val tlist = ArrayList<T>()
 

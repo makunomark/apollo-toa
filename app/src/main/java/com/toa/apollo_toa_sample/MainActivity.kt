@@ -42,8 +42,7 @@ class MainActivity : AppCompatActivity() {
         })
     }
 }
-class Character{
-    var id: String? = ""
-    var name: String? = ""
-    var status: String? = ""
-}
+
+data class Character(var id: String? = "",
+                     var name: String? = "",
+                     var status: String? = "")
